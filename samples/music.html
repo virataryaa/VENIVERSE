@@ -238,7 +238,7 @@ em{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400}
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js"></script>
   <script>
-    const lenis = new Lenis({ duration: 1.2 });
+    const lenis = new Lenis({ duration: 0.7 });
     function raf(t){ lenis.raf(t); requestAnimationFrame(raf); } requestAnimationFrame(raf);
     gsap.registerPlugin(ScrollTrigger); lenis.on('scroll', ScrollTrigger.update);
     document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
@@ -246,10 +246,10 @@ em{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400}
       const el = document.querySelector(id); if (!el) return;
       e.preventDefault(); lenis.scrollTo(el, { offset: -40 });
     }));
-    gsap.from('.hero__eyebrow, .hero__title, .hero__sub, .hero__cta', { y: 60, opacity: 0, duration: 1, stagger: 0.15, ease: 'power3.out', delay: 0.25 });
+    gsap.from('.hero__eyebrow, .hero__title, .hero__sub, .hero__cta', { y: 60, opacity: 0, duration: 0.6, stagger: 0.08, ease: 'power3.out', delay: 0.15 });
     gsap.utils.toArray('.section, .cta').forEach(s => {
       gsap.from(s.querySelectorAll('.section__eyebrow,.section__title,.programs > div,.faculty__card,.pricing-row,h2,.btn'), {
-        y: 50, opacity: 0, duration: 0.9, stagger: 0.08, ease: 'power2.out',
+        y: 50, opacity: 0, duration: 0.5, stagger: 0.04, ease: 'power2.out',
         scrollTrigger: { trigger: s, start: 'top 80%' }
       });
     });

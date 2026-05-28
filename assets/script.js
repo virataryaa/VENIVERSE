@@ -27,11 +27,11 @@ document.querySelectorAll('a[href^="#"]').forEach((a) => {
 
 gsap.fromTo('.hero__brand span',
   { y: 140, opacity: 0 },
-  { y: 0, opacity: 1, duration: 1.1, stagger: 0.045, ease: 'power3.out', delay: 0.15 }
+  { y: 0, opacity: 1, duration: 0.7, stagger: 0.03, ease: 'power3.out', delay: 0.15 }
 );
 gsap.fromTo('.hero__meta',
   { opacity: 0, y: 20 },
-  { opacity: 1, y: 0, duration: 1, delay: 0.95, ease: 'power2.out' }
+  { opacity: 1, y: 0, duration: 1, delay: 0.3, ease: 'power2.out' }
 );
 
 gsap.utils.toArray('.block').forEach((block) => {
@@ -41,8 +41,8 @@ gsap.utils.toArray('.block').forEach((block) => {
   gsap.from(targets, {
     y: 50,
     opacity: 0,
-    duration: 0.9,
-    stagger: 0.08,
+    duration: 0.5,
+    stagger: 0.04,
     ease: 'power2.out',
     scrollTrigger: { trigger: block, start: 'top 80%' },
   });
