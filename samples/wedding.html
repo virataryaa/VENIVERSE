@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Wedding Venue — Sample by Veniverse</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+:root{--bg:#F1EFE7;--ink:#2A2A26;--sage:#7A8970;--brass:#B89766;--muted:rgba(42,42,38,.6)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--ink);font-size:16px;line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}ul{list-style:none}
+em{font-family:'Fraunces',serif;font-style:italic;font-weight:400;color:var(--sage)}
+.container{max-width:1200px;margin:0 auto;padding:0 32px}
+.ribbon{position:sticky;top:0;z-index:60;background:#E6E3D7;border-bottom:1px solid rgba(42,42,38,.1);padding:11px 24px;display:flex;justify-content:space-between;align-items:center;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.ribbon a{color:var(--sage);transition:opacity .2s}.ribbon a:hover{opacity:.7}
+.nav{position:absolute;top:80px;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:0 32px}
+.nav__brand{font-family:'Fraunces',serif;font-weight:500;font-size:24px;letter-spacing:-0.01em}
+.nav__links{display:flex;gap:32px;font-size:13px}
+.nav__links a{opacity:.7;transition:opacity .2s}.nav__links a:hover{opacity:1}
+@media (max-width:700px){.nav__links{display:none}}
+.btn{display:inline-block;padding:16px 32px;border:1px solid var(--ink);color:var(--ink);font-size:11px;letter-spacing:.28em;text-transform:uppercase;transition:all .3s;font-weight:500;background:transparent}
+.btn:hover{background:var(--ink);color:var(--bg)}
+.btn--solid{background:var(--ink);color:var(--bg)}
+.btn--solid:hover{background:transparent;color:var(--ink)}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:120px 32px 80px;text-align:center;position:relative;overflow:hidden}
+.hero__eyebrow{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--sage);margin-bottom:36px}
+.hero__title{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(56px,12vw,200px);line-height:.92;letter-spacing:-0.03em;max-width:1100px}
+.hero__sub{margin-top:40px;max-width:580px;font-size:18px;color:var(--muted)}
+.hero__cta{margin-top:48px;display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.hero__visual{margin-top:80px;width:100%;max-width:1200px;aspect-ratio:16/9;background:linear-gradient(160deg,#C9D2BB 0%,#A8B59C 40%,#7A8970 100%);border-radius:8px;position:relative;overflow:hidden}
+.hero__visual::after{content:'';position:absolute;inset:0;background:radial-gradient(80% 60% at 50% 30%, rgba(255,255,255,.3), transparent 70%)}
+.hero__visual::before{content:'';position:absolute;left:50%;bottom:0;width:80%;height:50%;transform:translateX(-50%);background:linear-gradient(180deg, transparent 0%, rgba(42,42,38,.18) 100%)}
+.section{padding:140px 0;border-top:1px solid rgba(42,42,38,.08)}
+.section__eyebrow{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--sage);margin-bottom:24px}
+.section__title{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(36px,5.5vw,72px);line-height:1.05;letter-spacing:-0.01em;max-width:920px}
+.spaces{margin-top:80px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.space{display:flex;flex-direction:column;gap:18px}
+.space__img{aspect-ratio:4/5;border-radius:8px;position:relative;overflow:hidden}
+.space__img--1{background:linear-gradient(140deg,#C9D2BB 0%,#7A8970 100%)}
+.space__img--2{background:linear-gradient(140deg,#E8DEC4 0%,#B89766 100%)}
+.space__img--3{background:linear-gradient(140deg,#D9D5C7 0%,#9B9683 100%)}
+.space__img::after{content:'';position:absolute;inset:0;background:radial-gradient(60% 60% at 50% 30%, rgba(255,255,255,.3), transparent 70%)}
+.space h3{font-family:'Fraunces',serif;font-weight:400;font-size:30px;letter-spacing:-0.01em}
+.space span{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--sage)}
+.space p{color:var(--muted);font-size:15px}
+@media (max-width:900px){.spaces{grid-template-columns:1fr;max-width:480px}}
+.packages{margin-top:80px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.package{background:#FBFAF4;border:1px solid rgba(42,42,38,.08);border-radius:12px;padding:40px 32px;transition:transform .4s, box-shadow .4s}
+.package:hover{transform:translateY(-4px);box-shadow:0 30px 60px -30px rgba(42,42,38,.15)}
+.package--feature{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.package--feature .package__price{color:var(--brass)}
+.package h4{font-family:'Fraunces',serif;font-weight:400;font-size:28px;letter-spacing:-0.01em}
+.package__price{margin:10px 0 24px;font-size:14px;color:var(--muted)}
+.package--feature .package__price{color:rgba(241,239,231,.6)}
+.package ul{display:grid;gap:10px;font-size:14px}
+.package li{padding-left:18px;position:relative;opacity:.85}
+.package li::before{content:'';position:absolute;left:0;top:9px;width:8px;height:1px;background:currentColor;opacity:.5}
+@media (max-width:900px){.packages{grid-template-columns:1fr}}
+.gallery{margin-top:80px;display:grid;grid-template-columns:repeat(6,1fr);gap:12px;grid-auto-rows:140px}
+.gallery > div{border-radius:6px;background:linear-gradient(140deg,#C9D2BB,#7A8970)}
+.gallery > div:nth-child(1){grid-column:span 2;grid-row:span 2}
+.gallery > div:nth-child(2){grid-column:span 2;background:linear-gradient(140deg,#E8DEC4,#B89766)}
+.gallery > div:nth-child(3){grid-column:span 2;background:linear-gradient(140deg,#D9D5C7,#9B9683)}
+.gallery > div:nth-child(4){grid-column:span 1;background:linear-gradient(140deg,#A8B59C,#7A8970)}
+.gallery > div:nth-child(5){grid-column:span 2;background:linear-gradient(140deg,#B89766,#8C6F4E)}
+.gallery > div:nth-child(6){grid-column:span 1;background:linear-gradient(140deg,#C9D2BB,#7A8970)}
+@media (max-width:700px){.gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:120px}.gallery > div:nth-child(n){grid-column:span 1;grid-row:span 1}}
+.cta{padding:200px 0;text-align:center}
+.cta h2{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(40px,7vw,96px);line-height:1.05;letter-spacing:-0.02em;margin:0 auto 48px;max-width:900px}
+.footer{padding:40px 0;border-top:1px solid rgba(42,42,38,.08);font-size:12px;color:var(--muted);letter-spacing:.06em}
+.footer__inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+</style>
+</head>
+<body>
+  <div class="ribbon">
+    <span>Sample design · Wedding Venue</span>
+    <a href="../index.html">← Back to Veniverse</a>
+  </div>
+
+  <nav class="nav">
+    <a href="#" class="nav__brand">The Venue</a>
+    <ul class="nav__links">
+      <li><a href="#spaces">Spaces</a></li>
+      <li><a href="#packages">Packages</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#enquire">Enquire</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero">
+    <span class="hero__eyebrow">A heritage estate · 14 acres · since 1958</span>
+    <h1 class="hero__title">Begin the rest <em>here</em>.</h1>
+    <p class="hero__sub">A garden estate for weddings, sangeets and milestone celebrations. Three distinct spaces, twelve hundred guests, one quiet team that has done this a thousand times.</p>
+    <div class="hero__cta">
+      <a href="#enquire" class="btn btn--solid">Plan a visit</a>
+      <a href="#spaces" class="btn">Explore the estate</a>
+    </div>
+    <div class="hero__visual"></div>
+  </header>
+
+  <section class="section" id="spaces">
+    <div class="container">
+      <span class="section__eyebrow">01 — The spaces</span>
+      <h2 class="section__title">Three settings, infinitely yours.</h2>
+      <div class="spaces">
+        <div class="space"><div class="space__img space__img--1"></div><span>Outdoor · 800 guests</span><h3>The Garden Lawn</h3><p>Two acres of manicured lawn under a canopy of old rain-trees. Ideal for sangeet and pheras.</p></div>
+        <div class="space"><div class="space__img space__img--2"></div><span>Indoor · 500 guests</span><h3>The Grand Hall</h3><p>A double-height hall with chandeliers and floor-to-ceiling windows. Climate-controlled, weather-proof.</p></div>
+        <div class="space"><div class="space__img space__img--3"></div><span>Intimate · 120 guests</span><h3>The Courtyard</h3><p>An open courtyard ringed by jasmine. Reserved for engagements, mehendis and rehearsal dinners.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="packages">
+    <div class="container">
+      <span class="section__eyebrow">02 — Packages</span>
+      <h2 class="section__title">Transparent, all-inclusive.</h2>
+      <div class="packages">
+        <div class="package">
+          <h4>Intimate</h4>
+          <p class="package__price">Up to 150 guests · single function</p>
+          <ul>
+            <li>The Courtyard, exclusive use</li>
+            <li>Catering for 150 (vegetarian)</li>
+            <li>Décor — base mandap &amp; seating</li>
+            <li>Sound, lighting, parking</li>
+            <li>Coordinator on the day</li>
+          </ul>
+        </div>
+        <div class="package package--feature">
+          <h4>Signature</h4>
+          <p class="package__price">Up to 500 guests · two functions</p>
+          <ul>
+            <li>The Grand Hall + Courtyard</li>
+            <li>Catering · multi-cuisine</li>
+            <li>Décor — designer collaboration</li>
+            <li>Full A/V, lighting, stage</li>
+            <li>Dedicated planning team</li>
+            <li>Bridal suite, 24 hours</li>
+          </ul>
+        </div>
+        <div class="package">
+          <h4>Estate</h4>
+          <p class="package__price">Up to 1,200 guests · three functions</p>
+          <ul>
+            <li>Whole estate, exclusive use</li>
+            <li>Catering · premium multi-cuisine</li>
+            <li>Décor — bespoke</li>
+            <li>Production · full-scale</li>
+            <li>On-site rooms for 60 guests</li>
+            <li>Concierge, transport, fireworks</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="gallery">
+    <div class="container">
+      <span class="section__eyebrow">03 — Gallery</span>
+      <h2 class="section__title">A glimpse of the estate.</h2>
+      <div class="gallery">
+        <div></div><div></div><div></div><div></div><div></div><div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="enquire">
+    <div class="container">
+      <h2>Come walk the lawns <em>before</em> you decide.</h2>
+      <a class="btn btn--solid" href="mailto:hello@venue.in">Plan a private visit</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span>The Venue · Sample by Veniverse</span>
+      <a href="../index.html">veniverse →</a>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js"></script>
+  <script>
+    const lenis = new Lenis({ duration: 1.2 });
+    function raf(t){ lenis.raf(t); requestAnimationFrame(raf); } requestAnimationFrame(raf);
+    gsap.registerPlugin(ScrollTrigger); lenis.on('scroll', ScrollTrigger.update);
+    document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
+      const id = a.getAttribute('href'); if (id.length <= 1) return;
+      const el = document.querySelector(id); if (!el) return;
+      e.preventDefault(); lenis.scrollTo(el, { offset: -40 });
+    }));
+    gsap.from('.hero__eyebrow, .hero__title, .hero__sub, .hero__cta', { y: 60, opacity: 0, duration: 1, stagger: 0.15, ease: 'power3.out', delay: 0.25 });
+    gsap.from('.hero__visual', { opacity: 0, y: 60, scale: 0.96, duration: 1.4, ease: 'power3.out', delay: 0.5 });
+    gsap.to('.hero__visual', { y: -60, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+    gsap.utils.toArray('.section, .cta').forEach(s => {
+      gsap.from(s.querySelectorAll('.section__eyebrow,.section__title,.space,.package,.gallery > div,h2,.btn'), {
+        y: 50, opacity: 0, duration: 0.9, stagger: 0.07, ease: 'power2.out',
+        scrollTrigger: { trigger: s, start: 'top 80%' }
+      });
+    });
+  </script>
+</body>
+</html>

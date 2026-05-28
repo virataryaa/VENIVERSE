@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Beauty Salon — Sample by Veniverse</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+:root{--bg:#F6EAEA;--ink:#3A1F23;--gold:#B98A6E;--soft:#E6CFC6;--muted:rgba(58,31,35,.6)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--ink);font-size:16px;line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}ul{list-style:none}
+em{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;color:var(--gold)}
+.container{max-width:1200px;margin:0 auto;padding:0 32px}
+.ribbon{position:sticky;top:0;z-index:60;background:#EFDCDC;border-bottom:1px solid rgba(58,31,35,.12);padding:11px 24px;display:flex;justify-content:space-between;align-items:center;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.ribbon a{color:var(--gold);transition:opacity .2s}.ribbon a:hover{opacity:.7}
+.nav{position:absolute;top:80px;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:0 32px}
+.nav__brand{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:26px;letter-spacing:.02em}
+.nav__links{display:flex;gap:32px;font-size:13px}
+.nav__links a{opacity:.7;transition:opacity .2s}.nav__links a:hover{opacity:1}
+@media (max-width:700px){.nav__links{display:none}}
+.btn{display:inline-block;padding:16px 34px;border:1px solid var(--ink);color:var(--ink);font-size:11px;letter-spacing:.28em;text-transform:uppercase;transition:all .3s;font-weight:500;background:transparent}
+.btn:hover{background:var(--ink);color:var(--bg)}
+.btn--solid{background:var(--ink);color:var(--bg)}
+.btn--solid:hover{background:transparent;color:var(--ink)}
+.hero{min-height:100vh;display:grid;grid-template-columns:1.2fr 1fr;align-items:center;padding:120px 0 80px;gap:48px;position:relative}
+.hero__text{padding:0 32px 0 32px;max-width:720px;justify-self:end;width:100%}
+@media (max-width:900px){.hero{grid-template-columns:1fr}.hero__text{justify-self:start;padding:0 32px}.hero__visual{display:none}}
+.hero__eyebrow{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin-bottom:36px}
+.hero__title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(48px,8vw,130px);line-height:1;letter-spacing:-0.02em}
+.hero__sub{margin-top:40px;max-width:480px;font-size:18px;color:var(--muted)}
+.hero__cta{margin-top:48px;display:flex;gap:14px;flex-wrap:wrap}
+.hero__visual{position:relative;width:100%;aspect-ratio:3/4;background:linear-gradient(150deg, var(--soft) 0%, #D8B3A8 60%, #B98A6E 100%);border-radius:300px 300px 0 0;overflow:hidden;max-width:480px;margin-right:32px}
+.hero__visual::after{content:'';position:absolute;inset:0;background:radial-gradient(60% 50% at 50% 30%, rgba(255,255,255,.35), transparent 70%)}
+.section{padding:140px 0;border-top:1px solid rgba(58,31,35,.1)}
+.section__eyebrow{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:24px}
+.section__title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(36px,5.5vw,72px);line-height:1.05;letter-spacing:-0.01em;max-width:920px}
+.services{margin-top:80px;display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.service{padding:48px 40px;background:#FBF1F1;border-radius:8px;transition:transform .4s, background .4s}
+.service:hover{transform:translateY(-4px);background:#fff}
+.service span{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:18px}
+.service h3{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:34px;letter-spacing:-0.01em;margin-bottom:12px}
+.service p{color:var(--muted);font-size:15px}
+@media (max-width:700px){.services{grid-template-columns:1fr}}
+.price-list{margin-top:80px;border-top:1px solid rgba(58,31,35,.18)}
+.price-row{display:grid;grid-template-columns:1.4fr 1.2fr .8fr;align-items:center;padding:24px 0;border-bottom:1px solid rgba(58,31,35,.08);gap:24px}
+.price-row h5{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:22px;letter-spacing:-0.01em}
+.price-row span{color:var(--muted);font-size:14px}
+.price-row strong{font-weight:500;color:var(--gold);text-align:right;font-size:17px}
+@media (max-width:700px){.price-row{grid-template-columns:1fr;gap:4px;padding:18px 0}.price-row strong{text-align:left}}
+.stylists{margin-top:80px;display:grid;grid-template-columns:repeat(3,1fr);gap:36px}
+.stylist{display:flex;flex-direction:column;gap:18px}
+.stylist__photo{aspect-ratio:4/5;background:linear-gradient(140deg,var(--soft) 0%,#D8B3A8 60%,#B98A6E 100%);border-radius:300px 300px 12px 12px;position:relative;overflow:hidden}
+.stylist__photo::after{content:'';position:absolute;inset:0;background:radial-gradient(60% 60% at 50% 35%, rgba(255,255,255,.3), transparent 70%)}
+.stylist h5{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:24px;letter-spacing:-0.01em}
+.stylist span{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+@media (max-width:800px){.stylists{grid-template-columns:1fr;max-width:360px}}
+.cta{padding:200px 0;text-align:center}
+.cta h2{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(40px,7vw,96px);line-height:1.05;letter-spacing:-0.02em;margin:0 auto 48px;max-width:900px}
+.footer{padding:40px 0;border-top:1px solid rgba(58,31,35,.1);font-size:12px;color:var(--muted);letter-spacing:.06em}
+.footer__inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+</style>
+</head>
+<body>
+  <div class="ribbon">
+    <span>Sample design · Beauty Salon</span>
+    <a href="../index.html">← Back to Veniverse</a>
+  </div>
+
+  <nav class="nav">
+    <a href="#" class="nav__brand">The Salon</a>
+    <ul class="nav__links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#menu">Price menu</a></li>
+      <li><a href="#stylists">Stylists</a></li>
+      <li><a href="#book">Book</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero">
+    <div class="hero__text">
+      <span class="hero__eyebrow">Hair · skin · nails · bridal</span>
+      <h1 class="hero__title">A quiet hour, <em>for you</em>.</h1>
+      <p class="hero__sub">An intimate beauty studio in the heart of the city. Five chairs, no rush. Walk in, look up, leave a little lighter.</p>
+      <div class="hero__cta">
+        <a href="#book" class="btn btn--solid">Book an appointment</a>
+        <a href="#menu" class="btn">See the menu</a>
+      </div>
+    </div>
+    <div class="hero__visual"></div>
+  </header>
+
+  <section class="section" id="services">
+    <div class="container">
+      <span class="section__eyebrow">01 — Services</span>
+      <h2 class="section__title">Four worlds. One studio.</h2>
+      <div class="services">
+        <div class="service"><span>Hair</span><h3>Cuts &amp; colour</h3><p>Precision cuts, balayage, highlights, root-touch-up, gloss, treatments, blow-dries.</p></div>
+        <div class="service"><span>Skin</span><h3>Facials &amp; treatments</h3><p>Deep-cleansing, hydration, brightening, anti-ageing — every facial tailored to your skin type.</p></div>
+        <div class="service"><span>Nails</span><h3>Manicure &amp; pedicure</h3><p>Classic, gel, extensions, art. Sterilised tools, premium polishes, no shortcuts.</p></div>
+        <div class="service"><span>Bridal</span><h3>Trousseau &amp; party</h3><p>Engagement, sangeet, wedding-day. On-location or in-studio. Trials included, no surprises.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="menu">
+    <div class="container">
+      <span class="section__eyebrow">02 — Price menu</span>
+      <h2 class="section__title">A taste of the menu.</h2>
+      <div class="price-list">
+        <div class="price-row"><h5>Hair cut · women</h5><span>Wash, cut, blow-dry · 60 min</span><strong>₹ 1,400</strong></div>
+        <div class="price-row"><h5>Hair cut · men</h5><span>Wash, cut, style · 45 min</span><strong>₹ 800</strong></div>
+        <div class="price-row"><h5>Global hair colour</h5><span>Includes wash &amp; blow-dry · 120 min</span><strong>₹ 3,800</strong></div>
+        <div class="price-row"><h5>Highlights / Balayage</h5><span>Consult, colour, gloss · 180 min</span><strong>From ₹ 5,800</strong></div>
+        <div class="price-row"><h5>Hydrating facial</h5><span>Cleanse, mask, massage · 75 min</span><strong>₹ 2,400</strong></div>
+        <div class="price-row"><h5>Classic mani-pedi</h5><span>Soak, scrub, polish · 60 min</span><strong>₹ 1,200</strong></div>
+        <div class="price-row"><h5>Bridal package</h5><span>Trial + day-of hair &amp; makeup</span><strong>From ₹ 24,000</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="stylists">
+    <div class="container">
+      <span class="section__eyebrow">03 — Stylists</span>
+      <h2 class="section__title">Hands you can trust.</h2>
+      <div class="stylists">
+        <div class="stylist"><div class="stylist__photo"></div><h5>Stylist One</h5><span>Hair colour · 12 years</span></div>
+        <div class="stylist"><div class="stylist__photo"></div><h5>Stylist Two</h5><span>Skin &amp; facials · 9 years</span></div>
+        <div class="stylist"><div class="stylist__photo"></div><h5>Stylist Three</h5><span>Bridal makeup · 14 years</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="book">
+    <div class="container">
+      <h2>Walk in as <em>you</em>.<br />Walk out a little lighter.</h2>
+      <a class="btn btn--solid" href="mailto:hello@salon.in">Book your seat</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span>The Salon · Sample by Veniverse</span>
+      <a href="../index.html">veniverse →</a>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js"></script>
+  <script>
+    const lenis = new Lenis({ duration: 1.2 });
+    function raf(t){ lenis.raf(t); requestAnimationFrame(raf); } requestAnimationFrame(raf);
+    gsap.registerPlugin(ScrollTrigger); lenis.on('scroll', ScrollTrigger.update);
+    document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
+      const id = a.getAttribute('href'); if (id.length <= 1) return;
+      const el = document.querySelector(id); if (!el) return;
+      e.preventDefault(); lenis.scrollTo(el, { offset: -40 });
+    }));
+    gsap.from('.hero__eyebrow, .hero__title, .hero__sub, .hero__cta', { y: 60, opacity: 0, duration: 1, stagger: 0.15, ease: 'power3.out', delay: 0.25 });
+    gsap.from('.hero__visual', { opacity: 0, scale: 0.9, y: 40, duration: 1.3, ease: 'power3.out', delay: 0.35 });
+    gsap.utils.toArray('.section, .cta').forEach(s => {
+      gsap.from(s.querySelectorAll('.section__eyebrow,.section__title,.service,.price-row,.stylist,h2,.btn'), {
+        y: 50, opacity: 0, duration: 0.9, stagger: 0.07, ease: 'power2.out',
+        scrollTrigger: { trigger: s, start: 'top 80%' }
+      });
+    });
+  </script>
+</body>
+</html>

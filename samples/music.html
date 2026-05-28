@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Music Institute — Sample by Veniverse</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+:root{--ink:#0E1B2C;--cream:#F4EFE6;--brass:#B89766;--muted:rgba(244,239,230,.65)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--ink);color:var(--cream);font-size:16px;line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}ul{list-style:none}
+em{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400}
+.container{max-width:1200px;margin:0 auto;padding:0 32px}
+.ribbon{position:sticky;top:0;z-index:60;background:#091221;border-bottom:1px solid rgba(184,151,102,.2);padding:11px 24px;display:flex;justify-content:space-between;align-items:center;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.ribbon a{color:var(--brass);transition:opacity .2s}.ribbon a:hover{opacity:.7}
+.nav{position:absolute;top:80px;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:0 32px}
+.nav__brand{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:26px;letter-spacing:.02em}
+.nav__links{display:flex;gap:32px;font-size:13px;letter-spacing:.06em}
+.nav__links a{opacity:.75;transition:opacity .2s}.nav__links a:hover{opacity:1}
+@media (max-width:700px){.nav__links{display:none}}
+.btn{display:inline-block;padding:15px 30px;border:1px solid var(--brass);color:var(--cream);font-size:12px;letter-spacing:.22em;text-transform:uppercase;transition:all .3s;font-weight:500;cursor:pointer}
+.btn:hover{background:var(--brass);color:var(--ink)}
+.btn--solid{background:var(--brass);color:var(--ink)}
+.btn--solid:hover{background:transparent;color:var(--cream)}
+.hero{min-height:100vh;display:flex;align-items:center;padding:120px 0 80px;position:relative}
+.hero__eyebrow{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--brass);margin-bottom:36px}
+.hero__title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(56px,11vw,170px);line-height:.92;letter-spacing:-0.02em}
+.hero__title em{display:block;color:var(--brass)}
+.hero__sub{margin-top:40px;max-width:540px;font-size:18px;color:var(--muted)}
+.hero__cta{margin-top:48px;display:flex;gap:14px;flex-wrap:wrap}
+.section{padding:140px 0;border-top:1px solid rgba(244,239,230,.08)}
+.section__eyebrow{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--brass);margin-bottom:24px}
+.section__title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(36px,5.5vw,72px);line-height:1.05;letter-spacing:-0.01em;max-width:920px}
+.programs{margin-top:80px;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(244,239,230,.1);border:1px solid rgba(244,239,230,.1)}
+.programs > div{background:var(--ink);padding:52px 36px;transition:background .4s}
+.programs > div:hover{background:#152946}
+.programs h3{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:34px;letter-spacing:-0.01em;margin-bottom:14px}
+.programs span{display:block;font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--brass);margin-bottom:24px}
+.programs p{color:var(--muted);font-size:15px}
+@media (max-width:800px){.programs{grid-template-columns:1fr}}
+.faculty{margin-top:80px;display:grid;grid-template-columns:repeat(4,1fr);gap:36px}
+.faculty__card{display:flex;flex-direction:column;gap:18px}
+.faculty__photo{aspect-ratio:3/4;background:linear-gradient(140deg,#152946 0%,#0E1B2C 60%,#091221 100%);border:1px solid rgba(184,151,102,.25);position:relative;overflow:hidden}
+.faculty__photo::after{content:'';position:absolute;inset:0;background:radial-gradient(60% 60% at 50% 35%, rgba(184,151,102,.22), transparent 72%)}
+.faculty__photo::before{content:'';position:absolute;left:50%;top:50%;width:46%;height:46%;border:1px solid rgba(184,151,102,.45);border-radius:50%;transform:translate(-50%,-50%)}
+.faculty__name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400}
+.faculty__role{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--brass)}
+@media (max-width:900px){.faculty{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.faculty{grid-template-columns:1fr}}
+.pricing-table{margin-top:80px;border-top:1px solid rgba(244,239,230,.14)}
+.pricing-row{display:grid;grid-template-columns:1.2fr 1.2fr .8fr;align-items:center;padding:32px 0;border-bottom:1px solid rgba(244,239,230,.08);font-size:16px;gap:24px}
+.pricing-row h5{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:26px;letter-spacing:-0.01em}
+.pricing-row span{color:var(--muted);font-size:15px}
+.pricing-row strong{font-weight:500;color:var(--brass);text-align:right;font-size:18px}
+@media (max-width:700px){.pricing-row{grid-template-columns:1fr;gap:6px;padding:24px 0}.pricing-row strong{text-align:left}}
+.cta{padding:200px 0;text-align:center}
+.cta h2{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(40px,7vw,96px);line-height:1.05;letter-spacing:-0.02em;margin-bottom:48px;max-width:900px;margin-left:auto;margin-right:auto}
+.cta em{color:var(--brass)}
+.footer{padding:40px 0;border-top:1px solid rgba(244,239,230,.08);font-size:12px;color:var(--muted);letter-spacing:.06em}
+.footer__inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+</style>
+</head>
+<body>
+  <div class="ribbon">
+    <span>Sample design · Music Institute</span>
+    <a href="../index.html">← Back to Veniverse</a>
+  </div>
+
+  <nav class="nav">
+    <a href="#" class="nav__brand">Music Institute</a>
+    <ul class="nav__links">
+      <li><a href="#programs">Programs</a></li>
+      <li><a href="#faculty">Faculty</a></li>
+      <li><a href="#fees">Fees</a></li>
+      <li><a href="#visit">Visit</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero">
+    <div class="container">
+      <span class="hero__eyebrow">Established lineage · since 2003</span>
+      <h1 class="hero__title">Where every <em>note</em> finds its place.</h1>
+      <p class="hero__sub">A classical and contemporary music school for ages 5 to 75. Individual attention, performance opportunities, and a curriculum that adapts to you.</p>
+      <div class="hero__cta">
+        <a href="#visit" class="btn btn--solid">Book a trial class</a>
+        <a href="#programs" class="btn">Explore programs</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="section" id="programs">
+    <div class="container">
+      <span class="section__eyebrow">01 — Programs</span>
+      <h2 class="section__title">Six disciplines, taught with care.</h2>
+      <div class="programs">
+        <div><span>Keys</span><h3>Piano</h3><p>From beginner foundations to advanced Trinity and ABRSM grade preparation.</p></div>
+        <div><span>Strings</span><h3>Guitar</h3><p>Classical, acoustic and electric — fingerstyle, theory and performance.</p></div>
+        <div><span>Strings</span><h3>Violin</h3><p>Bowed string technique with regular ensemble and recital practice.</p></div>
+        <div><span>Voice</span><h3>Vocals</h3><p>Hindustani, Western classical and contemporary — pitch, range, breath.</p></div>
+        <div><span>Percussion</span><h3>Drums</h3><p>Rhythm, coordination, genre study from rock to jazz to fusion.</p></div>
+        <div><span>Foundations</span><h3>Music Theory</h3><p>Notation, harmony, ear training — the language behind every instrument.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="faculty">
+    <div class="container">
+      <span class="section__eyebrow">02 — Faculty</span>
+      <h2 class="section__title">Teachers who still perform.</h2>
+      <div class="faculty">
+        <div class="faculty__card"><div class="faculty__photo"></div><div class="faculty__name">Faculty One</div><div class="faculty__role">Piano · Theory</div></div>
+        <div class="faculty__card"><div class="faculty__photo"></div><div class="faculty__name">Faculty Two</div><div class="faculty__role">Guitar · Composition</div></div>
+        <div class="faculty__card"><div class="faculty__photo"></div><div class="faculty__name">Faculty Three</div><div class="faculty__role">Vocals · Hindustani</div></div>
+        <div class="faculty__card"><div class="faculty__photo"></div><div class="faculty__name">Faculty Four</div><div class="faculty__role">Violin · Ensemble</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="fees">
+    <div class="container">
+      <span class="section__eyebrow">03 — Fees</span>
+      <h2 class="section__title">Transparent pricing, flexible schedules.</h2>
+      <div class="pricing-table">
+        <div class="pricing-row"><h5>Junior · Ages 5–10</h5><span>4 classes / month · 30 minutes</span><strong>₹ 4,800 / mo</strong></div>
+        <div class="pricing-row"><h5>Intermediate · Ages 11–17</h5><span>4 classes / month · 45 minutes</span><strong>₹ 6,400 / mo</strong></div>
+        <div class="pricing-row"><h5>Advanced · Adults</h5><span>4 classes / month · 60 minutes</span><strong>₹ 8,200 / mo</strong></div>
+        <div class="pricing-row"><h5>Group Theory · All ages</h5><span>4 classes / month · 60 minutes</span><strong>₹ 2,800 / mo</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="visit">
+    <div class="container">
+      <h2>Come <em>listen</em> before you decide.</h2>
+      <a class="btn btn--solid" href="mailto:hello@music.in">Book a free trial class</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span>Music Institute · Sample by Veniverse</span>
+      <a href="../index.html">veniverse →</a>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js"></script>
+  <script>
+    const lenis = new Lenis({ duration: 1.2 });
+    function raf(t){ lenis.raf(t); requestAnimationFrame(raf); } requestAnimationFrame(raf);
+    gsap.registerPlugin(ScrollTrigger); lenis.on('scroll', ScrollTrigger.update);
+    document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
+      const id = a.getAttribute('href'); if (id.length <= 1) return;
+      const el = document.querySelector(id); if (!el) return;
+      e.preventDefault(); lenis.scrollTo(el, { offset: -40 });
+    }));
+    gsap.from('.hero__eyebrow, .hero__title, .hero__sub, .hero__cta', { y: 60, opacity: 0, duration: 1, stagger: 0.15, ease: 'power3.out', delay: 0.25 });
+    gsap.utils.toArray('.section, .cta').forEach(s => {
+      gsap.from(s.querySelectorAll('.section__eyebrow,.section__title,.programs > div,.faculty__card,.pricing-row,h2,.btn'), {
+        y: 50, opacity: 0, duration: 0.9, stagger: 0.08, ease: 'power2.out',
+        scrollTrigger: { trigger: s, start: 'top 80%' }
+      });
+    });
+  </script>
+</body>
+</html>

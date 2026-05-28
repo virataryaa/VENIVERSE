@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Charity Foundation — Sample by Veniverse</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+:root{--bg:#1F3329;--bgDark:#152721;--cream:#F1ECDF;--accent:#D1825B;--muted:rgba(241,236,223,.7)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--cream);font-size:16px;line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}ul{list-style:none}
+em{font-family:'Fraunces',serif;font-style:italic;font-weight:400}
+.container{max-width:1200px;margin:0 auto;padding:0 32px}
+.ribbon{position:sticky;top:0;z-index:60;background:var(--bgDark);border-bottom:1px solid rgba(209,130,91,.2);padding:11px 24px;display:flex;justify-content:space-between;align-items:center;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.ribbon a{color:var(--accent);transition:opacity .2s}.ribbon a:hover{opacity:.7}
+.nav{position:absolute;top:80px;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:0 32px}
+.nav__brand{font-family:'Fraunces',serif;font-weight:500;font-size:24px;letter-spacing:-0.01em}
+.nav__links{display:flex;gap:32px;font-size:13px;letter-spacing:.04em}
+.nav__links a{opacity:.75;transition:opacity .2s}.nav__links a:hover{opacity:1}
+@media (max-width:700px){.nav__links{display:none}}
+.btn{display:inline-block;padding:16px 32px;border:1px solid var(--accent);color:var(--cream);font-size:12px;letter-spacing:.22em;text-transform:uppercase;transition:all .3s;font-weight:500;cursor:pointer}
+.btn:hover{background:var(--accent);color:var(--bg)}
+.btn--solid{background:var(--accent);color:var(--bg)}
+.btn--solid:hover{background:transparent;color:var(--cream)}
+.hero{min-height:100vh;display:flex;align-items:center;padding:120px 0 80px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;width:600px;height:600px;background:radial-gradient(circle,rgba(209,130,91,.18),transparent 65%);top:-100px;right:-150px;pointer-events:none}
+.hero__eyebrow{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--accent);margin-bottom:36px}
+.hero__title{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(48px,9vw,140px);line-height:1;letter-spacing:-0.02em;max-width:1100px}
+.hero__sub{margin-top:44px;max-width:560px;font-size:19px;color:var(--muted)}
+.hero__cta{margin-top:48px;display:flex;gap:14px;flex-wrap:wrap}
+.section{padding:140px 0;border-top:1px solid rgba(241,236,223,.08)}
+.section__eyebrow{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-bottom:24px}
+.section__title{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(36px,5.5vw,72px);line-height:1.05;letter-spacing:-0.01em;max-width:920px}
+.impact{margin-top:80px;display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+.impact__cell{padding:36px 0;border-top:1px solid rgba(241,236,223,.18)}
+.impact__num{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(56px,7vw,96px);line-height:1;letter-spacing:-0.02em;color:var(--accent)}
+.impact__label{margin-top:14px;font-size:13px;color:var(--muted);max-width:200px}
+@media (max-width:800px){.impact{grid-template-columns:repeat(2,1fr);gap:20px}}
+.programs{margin-top:80px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.program{background:var(--bgDark);padding:44px 36px;border-radius:8px;border:1px solid rgba(241,236,223,.06);transition:transform .4s}
+.program:hover{transform:translateY(-4px)}
+.program span{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:18px}
+.program h3{font-family:'Fraunces',serif;font-weight:400;font-size:30px;letter-spacing:-0.01em;margin-bottom:12px}
+.program p{color:var(--muted);font-size:15px}
+@media (max-width:900px){.programs{grid-template-columns:1fr}}
+.quote{margin-top:120px;max-width:980px}
+.quote p{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(28px,4vw,46px);line-height:1.25;letter-spacing:-0.01em}
+.quote cite{display:block;margin-top:32px;font-style:normal;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
+.cta{padding:200px 0;text-align:center}
+.cta h2{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(40px,7vw,96px);line-height:1.05;letter-spacing:-0.02em;margin:0 auto 48px;max-width:900px}
+.cta em{color:var(--accent)}
+.footer{padding:40px 0;border-top:1px solid rgba(241,236,223,.08);font-size:12px;color:var(--muted);letter-spacing:.06em}
+.footer__inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+</style>
+</head>
+<body>
+  <div class="ribbon">
+    <span>Sample design · Charity Foundation</span>
+    <a href="../index.html">← Back to Veniverse</a>
+  </div>
+
+  <nav class="nav">
+    <a href="#" class="nav__brand">The Foundation</a>
+    <ul class="nav__links">
+      <li><a href="#impact">Impact</a></li>
+      <li><a href="#programs">Programs</a></li>
+      <li><a href="#stories">Stories</a></li>
+      <li><a href="#donate">Donate</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero">
+    <div class="container">
+      <span class="hero__eyebrow">A registered non-profit · since 2011</span>
+      <h1 class="hero__title">Quietly building <em>better days</em> for the families that need them.</h1>
+      <p class="hero__sub">Education, nutrition and healthcare for under-served children across four states. Every rupee, traceable. Every program, evaluated.</p>
+      <div class="hero__cta">
+        <a href="#donate" class="btn btn--solid">Donate now</a>
+        <a href="#programs" class="btn">Our work</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="section" id="impact">
+    <div class="container">
+      <span class="section__eyebrow">01 — Impact</span>
+      <h2 class="section__title">Fifteen years. Real numbers.</h2>
+      <div class="impact">
+        <div class="impact__cell"><div class="impact__num">42k</div><div class="impact__label">Children fed every school day</div></div>
+        <div class="impact__cell"><div class="impact__num">186</div><div class="impact__label">Government schools partnered</div></div>
+        <div class="impact__cell"><div class="impact__num">4</div><div class="impact__label">States, 23 districts active</div></div>
+        <div class="impact__cell"><div class="impact__num">94%</div><div class="impact__label">Funds reaching the ground</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="programs">
+    <div class="container">
+      <span class="section__eyebrow">02 — Programs</span>
+      <h2 class="section__title">Three programs, one promise.</h2>
+      <div class="programs">
+        <div class="program"><span>Nutrition</span><h3>Mid-day meals</h3><p>Hot, hygienic, locally-sourced meals served in partner government schools every working day.</p></div>
+        <div class="program"><span>Education</span><h3>After-school learning</h3><p>Free reading, math and digital-literacy programs for children aged 6–14 from low-income families.</p></div>
+        <div class="program"><span>Health</span><h3>Mobile clinics</h3><p>Monthly check-ups, vaccinations and dental camps in rural and peri-urban communities.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="stories">
+    <div class="container">
+      <span class="section__eyebrow">03 — Stories</span>
+      <h2 class="section__title">In their words.</h2>
+      <blockquote class="quote">
+        <p>"My daughter used to come home and sleep. Now she comes home and reads. The foundation didn't just feed her — they gave her the energy to dream."</p>
+        <cite>Parent · Government school, Maharashtra</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <section class="cta" id="donate">
+    <div class="container">
+      <h2>One meal is <em>₹18</em>.<br />A whole school year is <em>₹3,600</em>.</h2>
+      <a class="btn btn--solid" href="#">Donate now</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span>The Foundation · Sample by Veniverse</span>
+      <a href="../index.html">veniverse →</a>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js"></script>
+  <script>
+    const lenis = new Lenis({ duration: 1.2 });
+    function raf(t){ lenis.raf(t); requestAnimationFrame(raf); } requestAnimationFrame(raf);
+    gsap.registerPlugin(ScrollTrigger); lenis.on('scroll', ScrollTrigger.update);
+    document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
+      const id = a.getAttribute('href'); if (id.length <= 1) return;
+      const el = document.querySelector(id); if (!el) return;
+      e.preventDefault(); lenis.scrollTo(el, { offset: -40 });
+    }));
+    gsap.from('.hero__eyebrow, .hero__title, .hero__sub, .hero__cta', { y: 60, opacity: 0, duration: 1, stagger: 0.15, ease: 'power3.out', delay: 0.25 });
+    gsap.utils.toArray('.section, .cta').forEach(s => {
+      gsap.from(s.querySelectorAll('.section__eyebrow,.section__title,.impact__cell,.program,.quote,h2,.btn'), {
+        y: 50, opacity: 0, duration: 0.9, stagger: 0.08, ease: 'power2.out',
+        scrollTrigger: { trigger: s, start: 'top 80%' }
+      });
+    });
+    gsap.utils.toArray('.impact__num').forEach(el => {
+      const raw = el.textContent.trim();
+      const num = parseFloat(raw); const suffix = raw.replace(/[0-9.]/g,'');
+      if (isNaN(num)) return;
+      const obj = { v: 0 };
+      gsap.to(obj, { v: num, duration: 2, ease: 'power2.out', scrollTrigger: { trigger: el, start: 'top 85%' }, onUpdate(){ el.textContent = (num >= 1000 ? Math.round(obj.v) : obj.v.toFixed(0)) + suffix; }});
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Home Tuition — Sample by Veniverse</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+:root{--bg:#EFE7D8;--ink:#1B1A17;--olive:#6B7A4B;--muted:rgba(27,26,23,.6)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--ink);font-size:16px;line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}ul{list-style:none}
+em{font-family:'Fraunces',serif;font-style:italic;font-weight:400;color:var(--olive)}
+.container{max-width:1200px;margin:0 auto;padding:0 32px}
+.ribbon{position:sticky;top:0;z-index:60;background:#E2D8C2;border-bottom:1px solid rgba(27,26,23,.1);padding:11px 24px;display:flex;justify-content:space-between;align-items:center;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.ribbon a{color:var(--olive);transition:opacity .2s}.ribbon a:hover{opacity:.7}
+.nav{position:absolute;top:80px;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:0 32px}
+.nav__brand{font-family:'Fraunces',serif;font-weight:500;font-size:24px;letter-spacing:-0.01em}
+.nav__links{display:flex;gap:32px;font-size:13px}
+.nav__links a{opacity:.7;transition:opacity .2s}.nav__links a:hover{opacity:1}
+@media (max-width:700px){.nav__links{display:none}}
+.btn{display:inline-block;padding:16px 32px;background:var(--ink);color:var(--bg);font-size:12px;letter-spacing:.22em;text-transform:uppercase;transition:all .3s;font-weight:500;border:1px solid var(--ink)}
+.btn:hover{background:transparent;color:var(--ink)}
+.btn--outline{background:transparent;color:var(--ink)}
+.btn--outline:hover{background:var(--ink);color:var(--bg)}
+.hero{min-height:100vh;display:flex;align-items:center;padding:120px 0 80px;position:relative}
+.hero__eyebrow{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--olive);margin-bottom:36px}
+.hero__title{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(48px,9vw,150px);line-height:.98;letter-spacing:-0.02em;max-width:1100px}
+.hero__sub{margin-top:44px;max-width:560px;font-size:19px;color:var(--muted)}
+.hero__cta{margin-top:48px;display:flex;gap:14px;flex-wrap:wrap}
+.section{padding:140px 0;border-top:1px solid rgba(27,26,23,.1)}
+.section__eyebrow{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--olive);margin-bottom:24px}
+.section__title{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(36px,5.5vw,72px);line-height:1.05;letter-spacing:-0.01em;max-width:920px}
+.subjects{margin-top:80px;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(27,26,23,.12);border:1px solid rgba(27,26,23,.12)}
+.subject{background:var(--bg);padding:40px 28px;transition:background .3s}
+.subject:hover{background:#E5DBC4}
+.subject h4{font-family:'Fraunces',serif;font-weight:400;font-size:26px;letter-spacing:-0.01em;margin-bottom:10px}
+.subject span{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--olive)}
+@media (max-width:900px){.subjects{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:500px){.subjects{grid-template-columns:1fr}}
+.steps{margin-top:80px;display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.step{padding:36px 0;border-top:2px solid var(--ink)}
+.step__num{font-family:'Fraunces',serif;font-weight:300;font-size:64px;letter-spacing:-0.02em;line-height:1;color:var(--olive)}
+.step h4{font-family:'Fraunces',serif;font-weight:400;font-size:28px;letter-spacing:-0.01em;margin:18px 0 12px}
+.step p{color:var(--muted);font-size:15px}
+@media (max-width:800px){.steps{grid-template-columns:1fr}}
+.tutors{margin-top:80px;display:grid;grid-template-columns:repeat(3,1fr);gap:36px}
+.tutor{display:flex;flex-direction:column;gap:18px}
+.tutor__photo{aspect-ratio:1/1;background:linear-gradient(140deg,#D9CFB7 0%,#C9BD9F 60%,#B8AB8D 100%);border-radius:50%;position:relative;overflow:hidden}
+.tutor__photo::after{content:'';position:absolute;inset:0;background:radial-gradient(60% 60% at 50% 40%, rgba(255,255,255,.25), transparent 70%)}
+.tutor h5{font-family:'Fraunces',serif;font-weight:400;font-size:22px;letter-spacing:-0.01em}
+.tutor span{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--olive)}
+.tutor p{color:var(--muted);font-size:14px}
+@media (max-width:800px){.tutors{grid-template-columns:1fr;max-width:400px}}
+.cta{padding:200px 0;text-align:center}
+.cta h2{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(40px,7vw,96px);line-height:1.05;letter-spacing:-0.02em;margin:0 auto 48px;max-width:900px}
+.footer{padding:40px 0;border-top:1px solid rgba(27,26,23,.1);font-size:12px;color:var(--muted);letter-spacing:.06em}
+.footer__inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+</style>
+</head>
+<body>
+  <div class="ribbon">
+    <span>Sample design · Home Tuition</span>
+    <a href="../index.html">← Back to Veniverse</a>
+  </div>
+
+  <nav class="nav">
+    <a href="#" class="nav__brand">Home Tuition Co.</a>
+    <ul class="nav__links">
+      <li><a href="#subjects">Subjects</a></li>
+      <li><a href="#how">How it works</a></li>
+      <li><a href="#tutors">Tutors</a></li>
+      <li><a href="#book">Book</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero">
+    <div class="container">
+      <span class="hero__eyebrow">Personalised · at your home · any board</span>
+      <h1 class="hero__title">Tuition that <em>shows up</em> for your child.</h1>
+      <p class="hero__sub">Verified tutors, one-on-one classes at your home or online. CBSE, ICSE, IGCSE and state boards — Grade 1 through 12.</p>
+      <div class="hero__cta">
+        <a href="#book" class="btn">Book a free demo</a>
+        <a href="#subjects" class="btn btn--outline">See subjects</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="section" id="subjects">
+    <div class="container">
+      <span class="section__eyebrow">01 — Subjects</span>
+      <h2 class="section__title">Every subject. Every board. Every grade.</h2>
+      <div class="subjects">
+        <div class="subject"><h4>Mathematics</h4><span>Grades 1–12</span></div>
+        <div class="subject"><h4>Physics</h4><span>Grades 8–12</span></div>
+        <div class="subject"><h4>Chemistry</h4><span>Grades 8–12</span></div>
+        <div class="subject"><h4>Biology</h4><span>Grades 8–12</span></div>
+        <div class="subject"><h4>English</h4><span>Grades 1–12</span></div>
+        <div class="subject"><h4>Hindi</h4><span>Grades 1–10</span></div>
+        <div class="subject"><h4>Social Science</h4><span>Grades 6–10</span></div>
+        <div class="subject"><h4>Accountancy</h4><span>Grades 11–12</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="how">
+    <div class="container">
+      <span class="section__eyebrow">02 — How it works</span>
+      <h2 class="section__title">Three steps to your first class.</h2>
+      <div class="steps">
+        <div class="step"><div class="step__num">01</div><h4>Tell us your need</h4><p>Subject, grade, board, schedule, and whether you want the class at home or online.</p></div>
+        <div class="step"><div class="step__num">02</div><h4>Meet your tutor</h4><p>We match you with two shortlisted tutors. A free 30-minute demo with each, no commitment.</p></div>
+        <div class="step"><div class="step__num">03</div><h4>Begin classes</h4><p>Pick the tutor that fits. Pay monthly. Cancel anytime — no contracts, no fees.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="tutors">
+    <div class="container">
+      <span class="section__eyebrow">03 — Tutors</span>
+      <h2 class="section__title">Verified, vetted, kind.</h2>
+      <div class="tutors">
+        <div class="tutor"><div class="tutor__photo"></div><h5>Tutor One</h5><span>Mathematics · Grades 6–12</span><p>9 years of teaching experience. Trains students for boards and entrance exams.</p></div>
+        <div class="tutor"><div class="tutor__photo"></div><h5>Tutor Two</h5><span>Physics · Chemistry · Grades 9–12</span><p>IIT graduate. Specialises in concept-first teaching and exam strategy.</p></div>
+        <div class="tutor"><div class="tutor__photo"></div><h5>Tutor Three</h5><span>English · Grades 3–10</span><p>Master's in literature. Builds confident readers and writers from the ground up.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="book">
+    <div class="container">
+      <h2>The right tutor changes <em>everything</em>.</h2>
+      <a class="btn" href="mailto:hello@tuition.in">Book a free demo</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span>Home Tuition Co. · Sample by Veniverse</span>
+      <a href="../index.html">veniverse →</a>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js"></script>
+  <script>
+    const lenis = new Lenis({ duration: 1.2 });
+    function raf(t){ lenis.raf(t); requestAnimationFrame(raf); } requestAnimationFrame(raf);
+    gsap.registerPlugin(ScrollTrigger); lenis.on('scroll', ScrollTrigger.update);
+    document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
+      const id = a.getAttribute('href'); if (id.length <= 1) return;
+      const el = document.querySelector(id); if (!el) return;
+      e.preventDefault(); lenis.scrollTo(el, { offset: -40 });
+    }));
+    gsap.from('.hero__eyebrow, .hero__title, .hero__sub, .hero__cta', { y: 60, opacity: 0, duration: 1, stagger: 0.15, ease: 'power3.out', delay: 0.25 });
+    gsap.utils.toArray('.section, .cta').forEach(s => {
+      gsap.from(s.querySelectorAll('.section__eyebrow,.section__title,.subject,.step,.tutor,h2,.btn'), {
+        y: 50, opacity: 0, duration: 0.9, stagger: 0.07, ease: 'power2.out',
+        scrollTrigger: { trigger: s, start: 'top 80%' }
+      });
+    });
+  </script>
+</body>
+</html>
